@@ -1,1 +1,3 @@
-export const GeoData_State = [];
+const GeoData_State = [];
+
+export default GeoData_State
