@@ -5,8 +5,9 @@ const change = (e) => ({
     payload: e.target.value,
 })
 
-const submit = () => ({
-    type: FormType.SUBMIT
+const submit = (payload) => ({
+    type: FormType.SUBMIT,
+    payload: payload
 })
 
 

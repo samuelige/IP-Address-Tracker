@@ -8,11 +8,7 @@ const formReducer = (state = FORM_STATE, action) => {
                 ...state,
                 ipAddress: action.payload,
             };
-        case FormType.SUBMIT:
-            return {
-                ...state,
-                ipAddress: '',
-            }
+        
         default:
             return state;
             
@@ -21,6 +17,13 @@ const formReducer = (state = FORM_STATE, action) => {
 }
 
 const searchReducer = (searchState = SEARCH_STATE, action ) => {
+    switch(action.type) {
+        case FormType.SUBMIT:
+            return {
+                ...searchState,
+                search: action.payload,
+            }
+    }
     return searchState
 }
 
