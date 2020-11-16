@@ -6,6 +6,7 @@ import CustomButton from '../Components/Button/button'
 import Input from '../Components/Input/Input'
 import { change, submit } from '../Redux/Action/ActionCreators/FormActionCreator'
 import { LoadGeoData } from '../Redux/Action/ActionCreators/LoadGeoDataAction'
+import './Form.scss'
 
 
 const Form = () => {
@@ -35,10 +36,17 @@ const Form = () => {
     }, [searchState.search])
 
     const loadData = async () => {
-        const geodata = await axios.get(API_URL)
-        console.log(geodata, 'geodata')
-        dispatch(LoadGeoData(geodata.data))
+        
+        try {
+            const geodata = await axios.get(API_URL)
+            // console.log(geodata, 'geodata')
+            dispatch(LoadGeoData(geodata.data))
+        }
+        catch(error) {
+            console.error(error);
+        }
     }
+    
     
     
     return (
@@ -52,7 +60,7 @@ const Form = () => {
                     label='IP Address'
                     required
                 />
-                <CustomButton type="submit" onClick={handleSubmit}>Search</CustomButton>
+                <CustomButton  type="submit" onClick={handleSubmit}>Search</CustomButton>
             </form>
         </div>
     )
