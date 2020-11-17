@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Form from './Form/Form'
 import './App.css'
-import Map from './Map/Map'
+// import Map from './Map/Map'
+import IpMap from './Map/IpMap'
 
 
 
@@ -38,7 +39,8 @@ const App = () => {
         </div>
       </div>
       <div className="map">
-        <Map />
+        {/* <Map /> */}
+        <IpMap />
       </div>
     </div>
   )
